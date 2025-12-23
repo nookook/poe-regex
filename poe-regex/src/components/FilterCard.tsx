@@ -1,10 +1,14 @@
-type Filter = {
+export default function FilterCard({
+  name,
+  isChecked,
+  priority,
+  text,
+}: {
   name: string;
-  text: string;
   isChecked: boolean;
-};
-
-const FilterCard = (filter: Filter) => {
+  priority: 1 | 2 | 3 | 4 | 5;
+  text: string;
+}) {
   function onFilterClick() {
     // TODO recalculate filter regex
   }
@@ -12,15 +16,11 @@ const FilterCard = (filter: Filter) => {
   return (
     <div>
       <label className="">
-        <input
-          type="checkbox"
-          onChange={onFilterClick}
-          checked={filter.isChecked}
-        />
-        <span>{filter.text}</span>
+        <input type="checkbox" onChange={onFilterClick} checked={isChecked} />
+        <span>
+          {priority}. {text} [<i>{name}</i>]
+        </span>
       </label>
     </div>
   );
-};
-
-export default FilterCard;
+}

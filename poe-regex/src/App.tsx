@@ -1,10 +1,10 @@
 import "./App.css";
-import FilterCardList from "./pages/FilterCardList";
+import MapRegex from "./pages/MapRegex";
 
 function App() {
   return (
     <>
-      <FilterCardList />
+      <MapRegex />
     </>
   );
 }
