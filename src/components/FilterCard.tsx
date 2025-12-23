@@ -1,22 +1,19 @@
+import useFilterContext from "../hooks/FilterContextHook";
+import type { FilterOptionsType } from "../constants/FilterOptions";
+
 export default function FilterCard({
   name,
-  isChecked,
   priority,
   text,
-}: {
-  name: string;
-  isChecked: boolean;
-  priority: 1 | 2 | 3 | 4 | 5;
-  text: string;
-}) {
-  function onFilterClick() {
-    // TODO recalculate filter regex
-  }
+}: FilterOptionsType) {
+  const { toggleFilter, isInFilter } = useFilterContext();
+  const isChecked = isInFilter(name);
+  const handleToggle = () => toggleFilter(name);
 
   return (
     <div>
       <label className="">
-        <input type="checkbox" onChange={onFilterClick} checked={isChecked} />
+        <input type="checkbox" onChange={handleToggle} checked={isChecked} />
         <span className={`priority-${priority}`}>
           {text} [<i>{name}</i>]
         </span>
