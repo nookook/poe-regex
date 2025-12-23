@@ -17,8 +17,8 @@ export default function FilterCard({
     <div>
       <label className="">
         <input type="checkbox" onChange={onFilterClick} checked={isChecked} />
-        <span>
-          {priority}. {text} [<i>{name}</i>]
+        <span className={`priority-${priority}`}>
+          {text} [<i>{name}</i>]
         </span>
       </label>
     </div>
