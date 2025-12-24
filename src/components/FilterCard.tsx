@@ -14,7 +14,7 @@ export default function FilterCard({
   return (
     <div className="filter-card">
       <label
-        className="filter-card-label cursor-pointer p-2 m-px"
+        className="filter-card-label cursor-pointer p-2 m-px hover:underline"
         title={benefits}
       >
         <span className={`priority-${priority} text-left whitespace-pre-wrap`}>
