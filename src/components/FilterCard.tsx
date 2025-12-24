@@ -11,8 +11,8 @@ export default function FilterCard({
   const handleToggle = () => toggleFilter(name);
 
   return (
-    <div>
-      <label className="">
+    <div className="filter-card">
+      <label>
         <input type="checkbox" onChange={handleToggle} checked={isChecked} />
         <span className={`priority-${priority}`}>
           {text} [<i>{name}</i>]

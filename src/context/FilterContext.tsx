@@ -9,30 +9,23 @@ export type FilterContextType = {
 
 export const FilterContext = createContext<FilterContextType | null>(null);
 
+let hasClickedOnce = false;
 export default function FilterProvider({ children }: { children: ReactNode }) {
   const [filters, setFilters] = useState<string[]>([]);
 
   useEffect(() => {
     const savedFilters = localStorage.getItem("filters");
-    if (savedFilters) {
-      setFilters(JSON.parse(savedFilters));
-      console.log(`Loaded filters: ${savedFilters}
-        filters=${filters}`);
-    } else {
-      console.log("No filters to load");
-    }
+    if (savedFilters) setFilters(JSON.parse(savedFilters));
   }, []);
 
   useEffect(() => {
+    if (!hasClickedOnce) return;
     const saveFilterString = JSON.stringify(filters);
     localStorage.setItem("filters", saveFilterString);
-    console.log(`Saved filters ${saveFilterString}
-      filter=${filters}
-      ${JSON.parse(saveFilterString)}`);
   }, [filters]);
 
   const toggleFilter = (filterName: string) => {
-    if (!filters) return;
+    hasClickedOnce = true;
 
     if (isInFilter(filterName)) {
       setFilters((prev) => prev?.filter((filter) => filter !== filterName));

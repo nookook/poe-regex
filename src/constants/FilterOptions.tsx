@@ -10,7 +10,7 @@ export const filterOptions: FilterOptionsType[] = [
   {
     name: "Antagonist's",
     priority: 5,
-    text: "(20—30)% increased number of Rare Monsters",
+    text: "(20-30)% increased number of Rare Monsters",
   },
   {
     name: "Chaining",
@@ -28,7 +28,7 @@ export const filterOptions: FilterOptionsType[] = [
     priority: 5,
     text: "Area contains two Unique Bosses",
   },
-  { name: "Unwavering", priority: 5, text: "(25—30)% more Monster Life" },
+  { name: "Unwavering", priority: 5, text: "(25-30)% more Monster Life" },
   {
     name: "Splitting",
     priority: 2,
@@ -39,38 +39,38 @@ export const filterOptions: FilterOptionsType[] = [
     priority: 3,
     text: "+40% Monster Physical Damage Reduction",
   },
-  { name: "Fecund", priority: 5, text: "(40—49)% more Monster Life" },
+  { name: "Fecund", priority: 5, text: "(40-49)% more Monster Life" },
   {
     name: "Savage",
     priority: 4,
-    text: "(22—25)% increased Monster Damage",
+    text: "(22-25)% increased Monster Damage",
   },
   {
     name: "Burning",
     priority: 2,
-    text: "Monsters deal (90—110)% extra Physical Damage as Fire",
+    text: "Monsters deal (90-110)% extra Physical Damage as Fire",
   },
   {
     name: "Freezing",
     priority: 2,
-    text: "Monsters deal (90—110)% extra Physical Damage as Cold",
+    text: "Monsters deal (90-110)% extra Physical Damage as Cold",
   },
   {
     name: "Shocking",
     priority: 2,
-    text: "Monsters deal (90—110)% extra Physical Damage as Lightning",
+    text: "Monsters deal (90-110)% extra Physical Damage as Lightning",
   },
   {
     name: "Profane",
     priority: 2,
-    text: "Monsters gain (31—35)% of their Physical Damage as Extra Chaos Damage",
+    text: "Monsters gain (31-35)% of their Physical Damage as Extra Chaos Damage",
   },
   {
     name: "Fleet",
     priority: 2,
-    text: `(25—30)% increased Monster Movement Speed
-    (35—45)% increased Monster Attack Speed
-    (35—45)% increased Monster Cast Speed`,
+    text: `(25-30)% increased Monster Movement Speed
+    (35-45)% increased Monster Attack Speed
+    (35-45)% increased Monster Cast Speed`,
   },
   {
     name: "Punishing",
@@ -135,7 +135,7 @@ export const filterOptions: FilterOptionsType[] = [
   {
     name: "Buffered",
     priority: 3,
-    text: "Monsters gain (40—49)% of Maximum Life as Extra Maximum Energy Shield",
+    text: "Monsters gain (40-49)% of Maximum Life as Extra Maximum Energy Shield",
   },
   { name: "Enthralled", priority: 2, text: "Unique Bosses are Possessed" },
   // suffixes
