@@ -14,20 +14,18 @@ export default function FilterCard({
   return (
     <div className="filter-card">
       <label
-        className="filter-card-label cursor-pointer flex p-2 border-1 border-gray-500"
+        className="filter-card-label cursor-pointer p-2 m-px"
         title={benefits}
       >
+        <span className={`priority-${priority} text-left whitespace-pre-wrap`}>
+          {text}
+        </span>
         <input
           type="checkbox"
           onChange={handleToggle}
           checked={isChecked}
           className="filter-checkbox appearance-none"
         />
-        <span
-          className={`priority-${priority} flex-1 text-left whitespace-pre-wrap`}
-        >
-          {text}
-        </span>
         <span className="text-right italic text-gray-400">[{name}]</span>
       </label>
     </div>

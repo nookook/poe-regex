@@ -247,5 +247,6 @@ export const filterOptions: FilterOptionsType[] = [
 6% increased Pack size`,
   },
   // suffixes
-  { name: "", priority: 5, text: "", benefits: `` },
+  // TODO add suffixes
+  //{ name: "", priority: 5, text: "", benefits: `` },
 ];

@@ -5,6 +5,7 @@ export type FilterContextType = {
   toggleFilter: (filterName: string) => void;
   isInFilter: (filterName: string) => boolean;
   getFilters: () => string[];
+  clearFilters: () => void;
 };
 
 export const FilterContext = createContext<FilterContextType | null>(null);
@@ -42,10 +43,15 @@ export default function FilterProvider({ children }: { children: ReactNode }) {
     return filters;
   };
 
+  const clearFilters = () => {
+    setFilters([]);
+  };
+
   const value: FilterContextType = {
     toggleFilter,
     isInFilter,
     getFilters,
+    clearFilters,
   };
 
   return (
