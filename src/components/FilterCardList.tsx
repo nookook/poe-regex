@@ -1,6 +1,6 @@
 import FilterCard from "./FilterCard";
 import { filterOptions } from "../constants/FilterOptions";
-import { useState, useEffect, type KeyboardEvent } from "react";
+import { useState, type ChangeEvent, type KeyboardEvent } from "react";
 import useFilterContext from "../hooks/FilterContextHook";
 
 function sortFilters() {
@@ -17,8 +17,8 @@ export default function FilterCardList() {
   const { getFilters, clearFilters } = useFilterContext();
   const filters = getFilters();
 
-  useEffect(() => {
-    if (filterSearch.trim().length === 0) {
+  const updateFilterResults = (newValue: string) => {
+    if (newValue.trim().length === 0) {
       setFilterResults(filterOptions);
       return;
     }
@@ -26,16 +26,23 @@ export default function FilterCardList() {
     setFilterResults(() => {
       return filterOptions.filter((filter) => {
         return (
-          filter.name
-            .toLowerCase()
-            .includes(filterSearch.trim().toLowerCase()) ||
-          filter.text.toLowerCase().includes(filterSearch.trim().toLowerCase())
+          filter.name.toLowerCase().includes(newValue.trim().toLowerCase()) ||
+          filter.text.toLowerCase().includes(newValue.trim().toLowerCase())
         );
       });
     });
-  }, [filterSearch]);
+  };
 
-  const clearFilterSearch = () => setFilterSearch("");
+  const clearFilterSearch = () => {
+    setFilterSearch("");
+    updateFilterResults("");
+  };
+
+  const handleFilterChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    setFilterSearch(newValue);
+    updateFilterResults(newValue);
+  };
 
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Escape") {
@@ -53,8 +60,11 @@ export default function FilterCardList() {
   };
 
   const handleCopy = async () => {
+    const filterRegex = getFilterRegex();
+    if (!filterRegex) return;
+
     try {
-      await navigator.clipboard.writeText(getFilterRegex());
+      await navigator.clipboard.writeText(filterRegex);
       setCopyButtonText("✔ Copied");
       setTimeout(() => {
         setCopyButtonText("Copy");
@@ -86,9 +96,7 @@ export default function FilterCardList() {
             className="filter-card-search grow border-3 border-blue-400 rounded-lg mt-3 mb-3 placeholder-gray-500 px-4 py-3 bg-gray-100 text-gray-900"
             placeholder="Search modifiers..."
             value={filterSearch}
-            onChange={(e) => {
-              setFilterSearch(e.target.value);
-            }}
+            onChange={handleFilterChange}
             onKeyDown={handleKeyDown}
           />
 
@@ -100,6 +108,11 @@ export default function FilterCardList() {
           </button>
         </div>
       </div>
+
+      <h2 className="text-left text-2xl mb-3">
+        Don't include these modifiers:
+      </h2>
+
       <div className="filter-card-list">
         {filterResults.map((filterResult) => (
           <FilterCard
