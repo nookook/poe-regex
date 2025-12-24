@@ -8,11 +8,12 @@ function sortFilters() {
 }
 
 export default function FilterCardList() {
+  const copyButtonDefaultText = "Copy";
   sortFilters();
 
   const [filterSearch, setFilterSearch] = useState("");
   const [filterResults, setFilterResults] = useState(filterOptions);
-  const [copyButtonText, setCopyButtonText] = useState("Copy");
+  const [copyButtonText, setCopyButtonText] = useState(copyButtonDefaultText);
 
   const { getFilters, clearFilters } = useFilterContext();
   const filters = getFilters();
@@ -67,7 +68,7 @@ export default function FilterCardList() {
       await navigator.clipboard.writeText(filterRegex);
       setCopyButtonText("✔ Copied");
       setTimeout(() => {
-        setCopyButtonText("Copy");
+        setCopyButtonText(copyButtonDefaultText);
       }, 1000);
     } catch (err) {
       console.error("Failed to copy text: ", err);
