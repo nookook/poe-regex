@@ -21,8 +21,10 @@ export default function FilterCardList() {
     setFilterResults(() => {
       return filterOptions.filter((filter) => {
         return (
-          filter.name.toLowerCase().includes(filterSearch.toLowerCase()) ||
-          filter.text.toLowerCase().includes(filterSearch.toLowerCase())
+          filter.name
+            .toLowerCase()
+            .includes(filterSearch.trim().toLowerCase()) ||
+          filter.text.toLowerCase().includes(filterSearch.trim().toLowerCase())
         );
       });
     });
