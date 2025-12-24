@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+.filter-card:has(input:checked) {
+  background-color: #3d444d;
+}
+
+#root {
+  --highest-priority: lch(62.06% 68.65 28.34);
+  --priority-light-change: calc((100 - 62) / 4);
+  --priority-chroma-change: calc(67 / 4);
+}
+
+.priority-1 {
+  color: lch(from var(--highest-priority) l c h);
+}
+.priority-2 {
+  color: lch(
+    from var(--highest-priority) calc(l + var(--priority-light-change))
+      calc(c - var(--priority-chroma-change)) h
+  );
+}
+.priority-3 {
+  color: lch(
+    from var(--highest-priority) calc(l + 2 * var(--priority-light-change))
+      calc(c - 2 * var(--priority-chroma-change)) h
+  );
+}
+.priority-4 {
+  color: lch(
+    from var(--highest-priority) calc(l + 3 * var(--priority-light-change))
+      calc(c - 3 * var(--priority-chroma-change)) h
+  );
+}
+.priority-5 {
+  color: lch(
+    from var(--highest-priority) calc(l + 4 * var(--priority-light-change))
+      calc(c - 4 * var(--priority-chroma-change)) h
+  );
+}

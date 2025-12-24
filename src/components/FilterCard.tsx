@@ -5,6 +5,7 @@ export default function FilterCard({
   name,
   priority,
   text,
+  benefits,
 }: FilterOptionsType) {
   const { toggleFilter, isInFilter } = useFilterContext();
   const isChecked = isInFilter(name);
@@ -12,11 +13,22 @@ export default function FilterCard({
 
   return (
     <div className="filter-card">
-      <label>
-        <input type="checkbox" onChange={handleToggle} checked={isChecked} />
-        <span className={`priority-${priority}`}>
-          {text} [<i>{name}</i>]
+      <label
+        className="filter-card-label cursor-pointer flex p-2 border-1 border-gray-500"
+        title={benefits}
+      >
+        <input
+          type="checkbox"
+          onChange={handleToggle}
+          checked={isChecked}
+          className="filter-checkbox appearance-none"
+        />
+        <span
+          className={`priority-${priority} flex-1 text-left whitespace-pre-wrap`}
+        >
+          {text}
         </span>
+        <span className="text-right italic text-gray-400">[{name}]</span>
       </label>
     </div>
   );

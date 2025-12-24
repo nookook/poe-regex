@@ -47,6 +47,7 @@ export default function FilterCardList() {
           name={filterResult.name}
           priority={filterResult.priority}
           text={filterResult.text}
+          benefits={filterResult.benefits}
         />
       ))}
     </div>
