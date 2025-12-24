@@ -1,11 +1,35 @@
 @import "tailwindcss";
 
+@media (max-width: 540px) {
+  .filter-output {
+    position: static;
+  }
+
+  .filter-controls {
+    flex-wrap: wrap;
+  }
+
+  .filter-controls > button {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .filter-controls > input {
+    margin: calc(var(--spacing) * 3);
+    margin-top: 0;
+  }
+
+  .filter-card-label > .text-right {
+    display: none;
+  }
+}
+
 .filter-card:has(input:checked) {
   background-color: #2e333a;
 }
 
 #root {
-  --highest-priority: lch(62.06% 68.65 28.34);
+  --highest-priority: lch(62% 67 28.34);
   --priority-light-change: calc((100 - 62) / 4);
   --priority-chroma-change: calc(67 / 4);
 }
@@ -41,22 +65,6 @@
 .filter-card-label {
   display: flex;
   justify-content: space-between;
-}
-
-@media (max-width: 535px) {
-  .filter-controls {
-    flex-wrap: wrap;
-  }
-
-  .filter-controls > button {
-    width: 100%;
-    margin-top: 0;
-  }
-
-  .filter-controls > input {
-    margin: calc(var(--spacing) * 3);
-    margin-top: 0;
-  }
 }
 
 .btn-copy {
