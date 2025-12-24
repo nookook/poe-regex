@@ -131,8 +131,8 @@ export const filterOptions: FilterOptionsType[] = [
     name: "Fleet",
     priority: 2,
     text: `(25-30)% increased Monster Movement Speed
-    (35-45)% increased Monster Attack Speed
-    (35-45)% increased Monster Cast Speed`,
+(35-45)% increased Monster Attack Speed
+(35-45)% increased Monster Cast Speed`,
     benefits: `19% increased Quantity of Items found in this Area
 11% increased Rarity of Items found in this Area
 7% increased Pack size`,
@@ -157,7 +157,7 @@ export const filterOptions: FilterOptionsType[] = [
     name: "Overlord's",
     priority: 2,
     text: `Unique Boss deals 25% increased Damage
-    Unique Boss has 30% increased Attack and Cast Speed`,
+Unique Boss has 30% increased Attack and Cast Speed`,
     benefits: `16% increased Quantity of Items found in this Area
 9% increased Rarity of Items found in this Area
 6% increased Pack size`,
@@ -166,7 +166,7 @@ export const filterOptions: FilterOptionsType[] = [
     name: "Titan's",
     priority: 2,
     text: `Unique Boss has 35% increased Life
-    Unique Boss has 70% increased Area of Effect`,
+Unique Boss has 70% increased Area of Effect`,
     benefits: `13% increased Quantity of Items found in this Area
 8% increased Rarity of Items found in this Area
 5% increased Pack size`,
@@ -183,8 +183,8 @@ export const filterOptions: FilterOptionsType[] = [
     name: "Unstoppable",
     priority: 5,
     text: `Monsters cannot be Taunted
-    Monsters' Action Speed cannot be modified to below Base Value
-    Monsters' Movement Speed cannot be modified to below Base Value`,
+Monsters' Action Speed cannot be modified to below Base Value
+Monsters' Movement Speed cannot be modified to below Base Value`,
     benefits: `10% increased Quantity of Items found in this Area
 6% increased Rarity of Items found in this Area
 4% increased Pack size`,
@@ -201,7 +201,7 @@ export const filterOptions: FilterOptionsType[] = [
     name: "Resistant",
     priority: 2,
     text: `+25% Monster Chaos Resistance
-    +40% Monster Elemental Resistances`,
++40% Monster Elemental Resistances`,
     benefits: `13% increased Quantity of Items found in this Area
 8% increased Rarity of Items found in this Area
 5% increased Pack size`,
@@ -246,7 +246,120 @@ export const filterOptions: FilterOptionsType[] = [
 9% increased Rarity of Items found in this Area
 6% increased Pack size`,
   },
+  {
+    name: "Skeletal",
+    priority: 5,
+    text: "Area is inhabited by Skeletons",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "Capricious",
+    priority: 5,
+    text: "Area is inhabited by Goatmen",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "Slithering",
+    priority: 5,
+    text: "Area is inhabited by Sea Witches and their Spawn",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "Undead",
+    priority: 5,
+    text: "Area is inhabited by Undead",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "Emanant",
+    priority: 5,
+    text: "Area is inhabited by ranged monsters",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "Feral",
+    priority: 5,
+    text: "Area is inhabited by Animals",
+    benefits: `16% increased Quantity of Items found in this Area
+9% increased Rarity of Items found in this Area
+6% increased Pack size`,
+  },
+  {
+    name: "Demonic",
+    priority: 5,
+    text: "Area is inhabited by Demons",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "Bipedal",
+    priority: 5,
+    text: "Area is inhabited by Humanoids",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "Solar",
+    priority: 5,
+    text: "Area is inhabited by Solaris fanatics",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "Lunar",
+    priority: 5,
+    text: "Area is inhabited by Lunaris fanatics",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "Haunting",
+    priority: 5,
+    text: "Area is inhabited by Ghosts",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "Feasting",
+    priority: 5,
+    text: "Area is inhabited by Cultists of Kitava",
+    benefits: `16% increased Quantity of Items found in this Area
+9% increased Rarity of Items found in this Area
+6% increased Pack size`,
+  },
+  {
+    name: "Multifarious",
+    priority: 5,
+    text: "Area has increased monster variety",
+    benefits: `10% increased Quantity of Items found in this Area
+6% increased Rarity of Items found in this Area
+4% increased Pack size`,
+  },
+  {
+    name: "Abhorrent",
+    priority: 5,
+    text: "Area is inhabited by Abominations",
+    benefits: `16% increased Quantity of Items found in this Area
+9% increased Rarity of Items found in this Area
+6% increased Pack size`,
+  },
+
   // suffixes
-  // TODO add suffixes
+
   //{ name: "", priority: 5, text: "", benefits: `` },
 ];
