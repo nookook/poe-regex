@@ -18,6 +18,24 @@ export default function FilterCardList() {
   const { getFilters, clearFilters } = useFilterContext();
   const filters = getFilters();
 
+  const findInFilterOptions = (
+    valueToSearch: string,
+    arrayToSearch = filterOptions
+  ) => {
+    for (const element of arrayToSearch) {
+      if (
+        element.name
+          .toLowerCase()
+          .includes(valueToSearch.trim().toLowerCase()) ||
+        element.text.toLowerCase().includes(valueToSearch.trim().toLowerCase())
+      ) {
+        return true;
+      }
+    }
+
+    return false;
+  };
+
   const updateFilterResults = (newValue: string) => {
     if (newValue.trim().length === 0) {
       setFilterResults(filterOptions);
@@ -26,10 +44,7 @@ export default function FilterCardList() {
 
     setFilterResults(() => {
       return filterOptions.filter((filter) => {
-        return (
-          filter.name.toLowerCase().includes(newValue.trim().toLowerCase()) ||
-          filter.text.toLowerCase().includes(newValue.trim().toLowerCase())
-        );
+        return findInFilterOptions(newValue, [filter]);
       });
     });
   };
@@ -52,12 +67,92 @@ export default function FilterCardList() {
   };
 
   const getFilterRegex = () => {
-    /*
-         TODO add in regex stuff
-          */
     if (filters.length === 0) return "";
 
-    return `"${filters.join(", ")}"`;
+    const mustMatch: string[] = [];
+    const mustMatchName: string[] = [];
+    const mustNotMatch: string[] = [];
+
+    // exclude characters that are only part of text used as number ranges:  - ( )
+    // also exclude numbers because in the game you will get lower numbers on lower difficulty maps
+    const charactersToIgnore = new RegExp(`[0-9\-\(\)\n]`);
+
+    for (const filter of filterOptions) {
+      if (filters.includes(filter.name)) {
+        /*
+        adding in ^ and $ for regex matching later
+        pushing name seperately because we want to avoid using it if possible
+
+        changing everything to lowercase to simplify matching and in the game the regex search is case-insensitive
+        */
+        mustMatch.push(`^${filter.text}$`.toLowerCase());
+        mustMatchName.push(`^${filter.name}$`.toLowerCase());
+      } else {
+        mustNotMatch.push(`^${filter.text}$^${filter.name}$`.toLowerCase());
+      }
+    }
+
+    // brute force calculating because i'm too dumb to figure out a math formula that's better
+    let regexOutputs: string[] = [];
+    let regexStringFound = "";
+    let matchesFound = 0;
+    let maxMatchesFound = 0;
+    const minimumAmountOfCharacters = 4; // start search at 4 character long matches to avoid false matches from randomly generated map names in the game
+
+    const findMyMatch = (thisMustMatch: string) => {
+      maxMatchesFound = 0;
+
+      // form i long strings to search
+      for (let i = minimumAmountOfCharacters; i < thisMustMatch.length; ++i) {
+        // loop through each character of the string
+        for (let j = 0; j < thisMustMatch.length - i + 1; ++j) {
+          const stringSearch = thisMustMatch.slice(j, j + i);
+          if (stringSearch.search(charactersToIgnore) !== -1) {
+            continue;
+          }
+
+          matchesFound = 0;
+
+          if (
+            !mustNotMatch.some((thisMustNotMatch) => {
+              return thisMustNotMatch.includes(stringSearch);
+            })
+          ) {
+            for (const eachMustMatch of mustMatch) {
+              if (eachMustMatch.includes(stringSearch)) {
+                matchesFound++;
+              }
+            }
+            if (matchesFound > maxMatchesFound) {
+              regexStringFound = stringSearch;
+              maxMatchesFound = matchesFound;
+            }
+          }
+        }
+      }
+
+      if (!regexOutputs.includes(regexStringFound))
+        regexOutputs.push(regexStringFound);
+    };
+
+    for (const [index, thisMustMatch] of mustMatch.entries()) {
+      regexStringFound = "";
+
+      for (const regexOutput of regexOutputs) {
+        if (thisMustMatch.includes(regexOutput)) {
+          regexStringFound = ".";
+          break;
+        }
+      }
+      if (regexStringFound) continue;
+
+      findMyMatch(thisMustMatch);
+
+      if (!regexStringFound) findMyMatch(mustMatchName[index]); // try matching with the name
+      if (!regexStringFound) return "ERROR! failed to find regex match";
+    }
+
+    return `"!${regexOutputs.join("|").replaceAll("+", "\\+")}"`;
   };
 
   const handleCopy = async () => {
@@ -99,6 +194,7 @@ export default function FilterCardList() {
             value={filterSearch}
             onChange={handleFilterChange}
             onKeyDown={handleKeyDown}
+            spellCheck={false}
           />
 
           <button
@@ -115,15 +211,19 @@ export default function FilterCardList() {
       </h2>
 
       <div className="filter-card-list">
-        {filterResults.map((filterResult) => (
-          <FilterCard
-            key={filterResult.name}
-            name={filterResult.name}
-            priority={filterResult.priority}
-            text={filterResult.text}
-            benefits={filterResult.benefits}
-          />
-        ))}
+        {filterResults.length > 0 ? (
+          filterResults.map((filterResult) => (
+            <FilterCard
+              key={filterResult.name}
+              name={filterResult.name}
+              priority={filterResult.priority}
+              text={filterResult.text}
+              benefits={filterResult.benefits}
+            />
+          ))
+        ) : (
+          <h3 className="text-lg italic">No search results</h3>
+        )}
       </div>
     </>
   );
