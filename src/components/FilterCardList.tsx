@@ -189,6 +189,7 @@ export default function FilterCardList() {
 
           <input
             type="text"
+            id="filter-card-search"
             className="filter-card-search grow border-3 border-blue-400 rounded-lg mt-3 mb-3 placeholder-gray-500 px-4 py-3 bg-gray-100 text-gray-900"
             placeholder="Search modifiers..."
             value={filterSearch}
