@@ -14,7 +14,7 @@
     margin-top: 0;
   }
 
-  .filter-controls > input {
+  .filter-controls > .filter-card-search-container {
     margin: calc(var(--spacing) * 3);
     margin-top: 0;
   }
@@ -32,6 +32,7 @@
   --highest-priority: lch(62% 67 28.34);
   --priority-light-change: calc((100 - 62) / 4);
   --priority-chroma-change: calc(67 / 4);
+  --x-button-border-color: #7a7a7a;
 }
 
 .priority-1 {
@@ -80,4 +81,10 @@ h1 > div.border {
   );
   border-image-slice: 1;
   width: clamp(200px, 400px, 60%);
+}
+
+.filter-card-search-x-button {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-text-stroke: 1px var(--x-button-border-color);
 }

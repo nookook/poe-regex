@@ -98,16 +98,28 @@ export default function FilterCardList() {
             {copyButtonText}
           </button>
 
-          <input
-            type="text"
-            id="filter-card-search"
-            className="filter-card-search grow border-3 border-blue-400 rounded-lg mt-3 mb-3 placeholder-gray-500 px-4 py-3 bg-gray-100 text-gray-900"
-            placeholder="Search modifiers..."
-            value={filterSearch}
-            onChange={handleFilterChange}
-            onKeyDown={handleKeyDown}
-            spellCheck={false}
-          />
+          <div className="filter-card-search-container relative grow mt-3 mb-3">
+            <input
+              type="text"
+              id="filter-card-search"
+              className="filter-card-search w-full border-3 border-blue-400 rounded-lg placeholder-gray-500 px-4 py-3 bg-gray-100 text-gray-900"
+              placeholder="Search modifiers..."
+              value={filterSearch}
+              onChange={handleFilterChange}
+              onKeyDown={handleKeyDown}
+              spellCheck={false}
+            />
+            {filterSearch.length > 0 ? (
+              <div
+                className="filter-card-search-x-button right-2 h-full absolute text-red-700 text-4xl font-bold cursor-pointer px-2"
+                onClick={clearFilterSearch}
+              >
+                x
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
 
           <button
             className="btn-reset cursor-pointer m-3 px-5 py-3 bg-linear-to-b from-red-700 to-red-900 rounded-lg shadow-md hover:from-red-800"
