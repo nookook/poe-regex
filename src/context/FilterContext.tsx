@@ -1,11 +1,13 @@
 import { createContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
+import RegexCalculation from "../components/RegexCalculation";
 
 export type FilterContextType = {
   toggleFilter: (filterName: string) => void;
   isInFilter: (filterName: string) => boolean;
   getFilters: () => string[];
   clearFilters: () => void;
+  filterRegex: string;
 };
 
 export const FilterContext = createContext<FilterContextType | null>(null);
@@ -13,6 +15,7 @@ export const FilterContext = createContext<FilterContextType | null>(null);
 let hasClickedOnce = false;
 export default function FilterProvider({ children }: { children: ReactNode }) {
   const [filters, setFilters] = useState<string[]>([]);
+  const [filterRegex, setFilterRegex] = useState("");
 
   useEffect(() => {
     const savedFilters = localStorage.getItem("filters");
@@ -20,6 +23,8 @@ export default function FilterProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
+    setFilterRegex(RegexCalculation(filters));
+
     if (!hasClickedOnce) return;
     const saveFilterString = JSON.stringify(filters);
     localStorage.setItem("filters", saveFilterString);
@@ -52,6 +57,7 @@ export default function FilterProvider({ children }: { children: ReactNode }) {
     isInFilter,
     getFilters,
     clearFilters,
+    filterRegex,
   };
 
   return (

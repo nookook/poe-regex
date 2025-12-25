@@ -5,7 +5,7 @@ export type FilterOptionsType = {
   benefits: string;
 };
 
-export const filterOptions: FilterOptionsType[] = [
+export const FILTER_OPTIONS: FilterOptionsType[] = [
   // prefixes
   {
     name: "Ceremonial",
