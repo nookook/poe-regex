@@ -646,5 +646,4 @@ Players have -20% to amount of Suppressed Spell Damage Prevented`,
 8% increased Rarity of Items found in this Area
 5% increased Pack size`,
   },
-  //{ name: "", priority: 5, text: "", benefits: `` },
 ];

@@ -2,18 +2,20 @@ import FilterCard from "./FilterCard";
 import { FILTER_OPTIONS } from "../constants/FilterOptions";
 import { useState, type ChangeEvent, type KeyboardEvent } from "react";
 import useFilterContext from "../hooks/FilterContextHook";
+import * as CONSTANTS from "../constants/Constants";
 
 function sortFilters() {
   FILTER_OPTIONS.sort((a, b) => a.priority - b.priority);
 }
 
 export default function FilterCardList() {
-  const copyButtonDefaultText = "Copy";
   sortFilters();
 
   const [filterSearch, setFilterSearch] = useState("");
   const [filterResults, setFilterResults] = useState(FILTER_OPTIONS);
-  const [copyButtonText, setCopyButtonText] = useState(copyButtonDefaultText);
+  const [copyButtonText, setCopyButtonText] = useState(
+    CONSTANTS.COPY_BUTTON_DEFAULT_TEXT
+  );
 
   const { filterRegex, clearFilters } = useFilterContext();
 
@@ -70,9 +72,9 @@ export default function FilterCardList() {
 
     try {
       await navigator.clipboard.writeText(filterRegex);
-      setCopyButtonText("✔ Copied");
+      setCopyButtonText(CONSTANTS.COPY_BUTTON_COPIED_TEXT);
       setTimeout(() => {
-        setCopyButtonText(copyButtonDefaultText);
+        setCopyButtonText(CONSTANTS.COPY_BUTTON_DEFAULT_TEXT);
       }, 1000);
     } catch (err) {
       console.error("Failed to copy text: ", err);
