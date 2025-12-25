@@ -95,12 +95,11 @@ export default function FilterCardList() {
     // brute force calculating because i'm too dumb to figure out a math formula that's better
     let regexOutputs: string[] = [];
     let regexStringFound = "";
-    let matchesFound = 0;
-    let maxMatchesFound = 0;
-    const minimumAmountOfCharacters = 4; // start search at 4 character long matches to avoid false matches from randomly generated map names in the game
 
     const findMyMatch = (thisMustMatch: string) => {
-      maxMatchesFound = 0;
+      const minimumAmountOfCharacters = 4; // start search at 4 character long matches to avoid false matches from randomly generated map names in the game
+      let matchesFound = 0;
+      let maxMatchesFound = -1;
 
       // form i long strings to search
       for (let i = minimumAmountOfCharacters; i < thisMustMatch.length; ++i) {
@@ -131,8 +130,10 @@ export default function FilterCardList() {
         }
       }
 
-      if (!regexOutputs.includes(regexStringFound))
-        regexOutputs.push(regexStringFound);
+      if (regexStringFound) {
+        if (!regexOutputs.includes(regexStringFound))
+          regexOutputs.push(regexStringFound);
+      }
     };
 
     for (const [index, thisMustMatch] of mustMatch.entries()) {
