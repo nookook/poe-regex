@@ -58,7 +58,8 @@ export const filterOptions: FilterOptionsType[] = [
   {
     name: "Unwavering",
     priority: 5,
-    text: "(25-30)% more Monster Life",
+    text: `(25-30)% more Monster Life
+Monsters cannot be Stunned`,
     benefits: `13% increased Quantity of Items found in this Area
 8% increased Rarity of Items found in this Area
 5% increased Pack size`,
@@ -361,5 +362,289 @@ Monsters' Movement Speed cannot be modified to below Base Value`,
 
   // suffixes
 
+  //{ name: "", priority: 5, text: "", benefits: `` },
+  {
+    name: "of Bloodlines",
+    priority: 5,
+    text: "(20—30)% increased Magic Monsters",
+    benefits: `10% increased Quantity of Items found in this Area
+6% increased Rarity of Items found in this Area
+4% increased Pack size`,
+  },
+  {
+    name: "of Venom",
+    priority: 4,
+    text: "Monsters Poison on Hit",
+    benefits: `16% increased Quantity of Items found in this Area
+9% increased Rarity of Items found in this Area
+6% increased Pack size`,
+  },
+  {
+    name: "of Balance",
+    priority: 5,
+    text: "Players cannot inflict Exposure",
+    benefits: `10% increased Quantity of Items found in this Area
+6% increased Rarity of Items found in this Area
+4% increased Pack size`,
+  },
+  {
+    name: "of Giants",
+    priority: 3,
+    text: "Monsters have 100% increased Area of Effect",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "of Deadliness",
+    priority: 2,
+    text: `Monsters have (360—400)% increased Critical Strike Chance
++(41—45)% to Monster Critical Strike Multiplier`,
+    benefits: `16% increased Quantity of Items found in this Area
+9% increased Rarity of Items found in this Area
+6% increased Pack size`,
+  },
+  {
+    name: "of Smothering",
+    priority: 1,
+    text: "Players have 60% less Recovery Rate of Life and Energy Shield",
+    benefits: `16% increased Quantity of Items found in this Area
+9% increased Rarity of Items found in this Area
+6% increased Pack size`,
+  },
+  {
+    name: "of Stasis",
+    priority: 1,
+    text: "Players cannot Regenerate Life, Mana or Energy Shield",
+    benefits: `16% increased Quantity of Items found in this Area
+9% increased Rarity of Items found in this Area
+6% increased Pack size`,
+  },
+  {
+    name: "of Flames",
+    priority: 3,
+    text: "Area has patches of Burning Ground",
+    benefits: `10% increased Quantity of Items found in this Area
+6% increased Rarity of Items found in this Area
+4% increased Pack size`,
+  },
+  {
+    name: "of Ice",
+    priority: 4,
+    text: "Area has patches of Chilled Ground",
+    benefits: `10% increased Quantity of Items found in this Area
+6% increased Rarity of Items found in this Area
+4% increased Pack size`,
+  },
+  {
+    name: "of Lightning",
+    priority: 3,
+    text: "Area has patches of Shocked Ground which increase Damage taken by 50%",
+    benefits: `10% increased Quantity of Items found in this Area
+6% increased Rarity of Items found in this Area
+4% increased Pack size`,
+  },
+  {
+    name: "of Desecration",
+    priority: 4,
+    text: "Area has patches of desecrated ground",
+    benefits: `10% increased Quantity of Items found in this Area
+6% increased Rarity of Items found in this Area
+4% increased Pack size`,
+  },
+  {
+    name: "of Consecration",
+    priority: 4,
+    text: "Area has patches of Consecrated Ground",
+    benefits: `10% increased Quantity of Items found in this Area
+6% increased Rarity of Items found in this Area
+4% increased Pack size`,
+  },
+  {
+    name: "of Elemental Weakness",
+    priority: 3,
+    text: "Players are Cursed with Elemental Weakness",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "of Vulnerability",
+    priority: 3,
+    text: "Players are Cursed with Vulnerability",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "of Enfeeblement",
+    priority: 4,
+    text: "Players are Cursed with Enfeeble",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "of Temporal Chains",
+    priority: 4,
+    text: "Players are Cursed with Temporal Chains",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "of Exposure",
+    priority: 1,
+    text: "Players have (-12—-9)% to all maximum Resistances",
+    benefits: `19% increased Quantity of Items found in this Area
+11% increased Rarity of Items found in this Area
+7% increased Pack size`,
+  },
+  {
+    name: "of Congealment",
+    priority: 2,
+    text: "Monsters cannot be Leeched from",
+    benefits: `16% increased Quantity of Items found in this Area
+9% increased Rarity of Items found in this Area
+6% increased Pack size`,
+  },
+  {
+    name: "of Insulation",
+    priority: 2,
+    text: "Monsters have 70% chance to Avoid Elemental Ailments",
+    benefits: `10% increased Quantity of Items found in this Area
+6% increased Rarity of Items found in this Area
+4% increased Pack size`,
+  },
+  {
+    name: "of Toughness",
+    priority: 2,
+    text: "Monsters take (36—40)% reduced Extra Damage from Critical Strikes",
+    benefits: `10% increased Quantity of Items found in this Area
+6% increased Rarity of Items found in this Area
+4% increased Pack size`,
+  },
+  {
+    name: "of Drought",
+    priority: 4,
+    text: "Players gain 50% reduced Flask Charges",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "of Rust",
+    priority: 2,
+    text: `Players have 30% less Armour
+Players have 40% reduced Chance to Block`,
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "of Miring",
+    priority: 3,
+    text: `Monsters have 50% increased Accuracy Rating
+Players have -20% to amount of Suppressed Spell Damage Prevented`,
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "of Impotence",
+    priority: 4,
+    text: "Players have 25% less Area of Effect",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "of Frenzy",
+    priority: 3,
+    text: "Monsters gain a Frenzy Charge on Hit",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "of Endurance",
+    priority: 4,
+    text: "Monsters gain an Endurance Charge on Hit",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "of Power",
+    priority: 3,
+    text: "Monsters gain a Power Charge on Hit",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "of Blinding",
+    priority: 5,
+    text: "Monsters Blind on Hit",
+    benefits: `10% increased Quantity of Items found in this Area
+6% increased Rarity of Items found in this Area
+4% increased Pack size`,
+  },
+  {
+    name: "of Carnage",
+    priority: 5,
+    text: "Monsters Maim on Hit with Attacks",
+    benefits: `10% increased Quantity of Items found in this Area
+6% increased Rarity of Items found in this Area
+4% increased Pack size`,
+  },
+  {
+    name: "of Impedance",
+    priority: 5,
+    text: "Monsters Hinder on Hit with Spells",
+    benefits: `10% increased Quantity of Items found in this Area
+6% increased Rarity of Items found in this Area
+4% increased Pack size`,
+  },
+  {
+    name: "of Enervation",
+    priority: 2,
+    text: "Monsters steal Power, Frenzy and Endurance charges on Hit",
+    benefits: `10% increased Quantity of Items found in this Area
+6% increased Rarity of Items found in this Area
+4% increased Pack size`,
+  },
+  {
+    name: "of Fatigue",
+    priority: 3,
+    text: "Players have 40% less Cooldown Recovery Rate",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "of Transience",
+    priority: 4,
+    text: "Buffs on Players expire 70% faster",
+    benefits: `10% increased Quantity of Items found in this Area
+6% increased Rarity of Items found in this Area
+4% increased Pack size`,
+  },
+  {
+    name: "of Doubt",
+    priority: 1,
+    text: "Players have 60% reduced effect of Non-Curse Auras from Skills",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
+  {
+    name: "of Imprecision",
+    priority: 3,
+    text: "Players have 25% less Accuracy Rating",
+    benefits: `13% increased Quantity of Items found in this Area
+8% increased Rarity of Items found in this Area
+5% increased Pack size`,
+  },
   //{ name: "", priority: 5, text: "", benefits: `` },
 ];
